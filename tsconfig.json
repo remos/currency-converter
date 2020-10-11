@@ -2,7 +2,8 @@
     "compilerOptions": {
         "jsx": "react",
         "esModuleInterop": true,
-        "types": ["./src/types"]
+        "resolveJsonModule": true,
+        "types": ["jest", "./src/types"]
     },
     "include": ["src/**/*"]
 }
