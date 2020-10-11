@@ -1,0 +1,46 @@
+{
+    "AUD": {
+        "name": "Australian Dollar",
+        "decimals": 2
+    },
+    "CAD": {
+        "name": "Canadian Dollar",
+        "decimals": 2
+    },
+    "CNY": {
+        "name": "Chinese Yuan",
+        "decimals": 2
+    },
+    "CZK": {
+        "name": "Czech Koruna",
+        "decimals": 2
+    },
+    "DKK": {
+        "name": "Danish Krone",
+        "decimals": 2
+    },
+    "EUR": {
+        "name": "Euro",
+        "decimals": 2
+    },
+    "GBP": {
+        "name": "British Pound",
+        "decimals": 2
+    },
+    "JPY": {
+        "name": "Japanese Yen",
+        "decimals": 0
+    },
+    "NOK": {
+        "name": "Norwegian Krone",
+        "decimals": 2
+    },
+    "NZD": {
+        "name": "New Zealand Dollar",
+        "decimals": 2
+    },
+    "USD": {
+        "name": "US Dollar",
+        "decimals": 2
+    }
+}
