@@ -14,6 +14,10 @@ function getRate(
   to: CurrencyCode,
   conversions: ConversionsMap
 ): number | string {
+  if (from === to) {
+    return 1.0;
+  }
+
   const key = `${from}-${to}`;
   if (key in conversions) {
     return conversions[key];

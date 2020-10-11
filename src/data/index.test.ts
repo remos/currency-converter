@@ -1,6 +1,29 @@
 import { convert, formatHolding } from '.';
 
 describe('convert', () => {
+  it('1:1 same currency', () => {
+    expect(
+      convert(
+        {
+          currency: 'AUD',
+          amount: 2.12,
+        },
+        'AUD'
+      )
+    ).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "amount": 2.12,
+          "currency": "AUD",
+        },
+        Object {
+          "amount": 2.12,
+          "currency": "AUD",
+        },
+      ]
+    `);
+  });
+
   it('Converts directly', () => {
     expect(
       convert(
