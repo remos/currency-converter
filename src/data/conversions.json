@@ -45,16 +45,16 @@
     "NOK-NZD": "USD",
     "NOK-USD": "EUR",
 
-    "EUR-CZK": "27.6028",
-    "EUR-DDK": "7.4405",
-    "EUR-NOK": "8.6651",
+    "EUR-CZK": 27.6028,
+    "EUR-DDK": 7.4405,
+    "EUR-NOK": 8.6651,
     
-    "USD-JPY": "119.95",
-    "USD-CNY": "6.1715",
+    "USD-JPY": 119.95,
+    "USD-CNY": 6.1715,
 
-    "AUD-USD": "0.8371",
-    "CAD-USD": "0.8711",
-    "EUR-USD": "1.2315",
-    "GBP-USD": "1.5683",
-    "NZD-USD": "0.7750"
+    "AUD-USD": 0.8371,
+    "CAD-USD": 0.8711,
+    "EUR-USD": 1.2315,
+    "GBP-USD": 1.5683,
+    "NZD-USD": 0.7750
 }
