@@ -9,6 +9,16 @@ export default {
   component: ConversionTable,
 } as Meta;
 
-export const Base: Story = () => (
-  <ConversionTable currencies={currencies} conversions={conversionMap} decimals={4} />
+export const Base: Story = ({ currencies, conversions, decimals }) => (
+  <ConversionTable
+    currencies={currencies}
+    conversions={conversions}
+    decimals={decimals}
+  />
 );
+
+Base.args = {
+  decimals: 4,
+  currencies: currencies,
+  conversions: conversionMap,
+};

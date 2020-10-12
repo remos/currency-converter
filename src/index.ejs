@@ -3,6 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      html, body {
+        height: 100vh;
+        height: -webkit-fill-available;
+        margin: 0;
+      }
+      #root{
+        height: 100%;
+        overflow: auto;
+      }
+
+      body {
+        background-color: #eee;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
