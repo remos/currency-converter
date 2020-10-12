@@ -2,8 +2,8 @@ import React, { ChangeEventHandler } from 'react';
 import { CurrenciesMap, CurrencyCode } from 'types';
 
 const CurrencySelector: React.FC<{
-  value: CurrencyCode;
   currencies: CurrenciesMap;
+  value: CurrencyCode;
   onChange: ChangeEventHandler<HTMLSelectElement>;
 }> = ({ currencies, onChange, value }) => {
   return (

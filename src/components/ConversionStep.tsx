@@ -1,14 +1,16 @@
 import React from 'react';
-import { Holding } from 'types';
+import { CurrenciesMap, Holding } from 'types';
 import HoldingDisplay from './HoldingDisplay';
 
 const ConversionStep: React.FC<{
   from: Holding;
   to: Holding;
-}> = ({ from, to }) => {
+  currencies: CurrenciesMap;
+}> = ({ from, to, currencies }) => {
   return (
     <div>
-      <HoldingDisplay holding={from} /> = <HoldingDisplay holding={to} />
+      <HoldingDisplay holding={from} currencies={currencies} /> ={' '}
+      <HoldingDisplay holding={to} currencies={currencies} />
     </div>
   );
 };

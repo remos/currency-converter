@@ -1,11 +1,12 @@
 import React from 'react';
-import { Holding } from 'types';
+import { CurrenciesMap, Holding } from 'types';
 import { formatHolding } from '../data';
 
 const HoldingDisplay: React.FC<{
   holding: Holding;
-}> = ({ holding }) => {
-  return <>{formatHolding(holding)}</>;
+  currencies: CurrenciesMap;
+}> = ({ holding, currencies }) => {
+  return <>{formatHolding(holding, currencies)}</>;
 };
 
 export default HoldingDisplay;

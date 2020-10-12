@@ -1,6 +1,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import CurrencyConverter from './components/CurrencyConverter';
+import { conversionMap, currencies } from './data';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -15,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 const App: React.FC = () => (
   <>
     <GlobalStyle />
-    <CurrencyConverter />
+    <CurrencyConverter currencies={currencies} conversions={conversionMap} />
   </>
 );
 

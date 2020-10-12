@@ -2,10 +2,13 @@ import { ConversionsMap, CurrenciesMap, CurrencyCode, Holding } from 'types';
 import defaultConversions from './conversions.json';
 import defaultCurrencies from './currencies.json';
 
-function getRate(
+export { defaultConversions as conversionMap };
+export { defaultCurrencies as currencies };
+
+export function getRate(
   from: CurrencyCode,
   to: CurrencyCode,
-  conversions: ConversionsMap
+  conversions: ConversionsMap = defaultConversions
 ): number | string {
   if (from === to) {
     return 1.0;
