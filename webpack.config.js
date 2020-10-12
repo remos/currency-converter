@@ -13,7 +13,12 @@ module.exports = {
     publicPath: '/',
   },
 
-  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Currency Converter',
+    }),
+  ],
 
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
