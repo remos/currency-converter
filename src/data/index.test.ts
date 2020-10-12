@@ -124,6 +124,37 @@ describe('convert', () => {
     `);
   });
 
+  it('Converts via two cross currencies', () => {
+    expect(
+      convert(
+        {
+          currency: 'CAD',
+          amount: 1,
+        },
+        'CZK'
+      )
+    ).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "amount": 1,
+          "currency": "CAD",
+        },
+        Object {
+          "amount": 0.8711,
+          "currency": "USD",
+        },
+        Object {
+          "amount": 0.7073487616727567,
+          "currency": "EUR",
+        },
+        Object {
+          "amount": 19.52480639870077,
+          "currency": "CZK",
+        },
+      ]
+    `);
+  });
+
   it('Converts via a cross currency with inferred cross', () => {
     expect(
       convert(
@@ -177,7 +208,7 @@ describe('convert', () => {
     `);
   });
 
-  it('Throws Error', () => {
+  it('Throws error when no path exists', () => {
     expect(() =>
       convert(
         {
@@ -187,6 +218,22 @@ describe('convert', () => {
         'USD'
       )
     ).toThrowErrorMatchingInlineSnapshot(`"Could not find conversion from MXN to USD"`);
+  });
+
+  it('Throws error when path loops', () => {
+    expect(() =>
+      convert(
+        {
+          currency: 'AUD',
+          amount: 2,
+        },
+        'JPY',
+        {
+          'AUD-JPY': 'USD',
+          'AUD-USD': 'JPY',
+        }
+      )
+    ).toThrowErrorMatchingInlineSnapshot(`"Conversion from AUD to JPY looped"`);
   });
 });
 

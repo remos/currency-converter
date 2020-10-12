@@ -1,13 +1,6 @@
-import { CurrencyCode, Holding } from 'types';
+import { ConversionsMap, CurrenciesMap, CurrencyCode, Holding } from 'types';
 import defaultConversions from './conversions.json';
 import defaultCurrencies from './currencies.json';
-
-type ConversionsMap = Record<string, string | number>;
-interface CurrencyInfo {
-  name: string;
-  decimals: number;
-}
-type CurrenciesMap = Record<string, CurrencyInfo>;
 
 function getRate(
   from: CurrencyCode,
@@ -37,10 +30,11 @@ function getRate(
   return null;
 }
 
-function stepsOnlyConvert(
+function recursiveConvert(
   from: Holding,
   to: CurrencyCode,
-  conversions: ConversionsMap
+  conversions: ConversionsMap,
+  visitedCurrencies: CurrencyCode[] = [from.currency]
 ): Holding[] {
   const trail = [];
 
@@ -48,8 +42,23 @@ function stepsOnlyConvert(
   if (rate === null) {
     throw new Error(`Could not find conversion from ${from.currency} to ${to}`);
   } else if (typeof rate === 'string') {
-    trail.push(...stepsOnlyConvert(from, rate, conversions));
-    trail.push(...stepsOnlyConvert(trail[trail.length - 1], to, conversions));
+    if (visitedCurrencies.indexOf(rate) >= 0) {
+      throw new Error(`Conversion from ${from.currency} to ${to} looped`);
+    }
+
+    const newVisited = [...visitedCurrencies, rate];
+
+    const crossHoldings = recursiveConvert(from, rate, conversions, newVisited);
+
+    trail.push(
+      ...crossHoldings,
+      ...recursiveConvert(
+        crossHoldings[crossHoldings.length - 1],
+        to,
+        conversions,
+        newVisited
+      )
+    );
   } else {
     trail.push({
       currency: to,
@@ -65,14 +74,13 @@ export function convert(
   to: CurrencyCode,
   conversions: ConversionsMap = defaultConversions
 ): Holding[] {
-  return [{ ...from }, ...stepsOnlyConvert(from, to, conversions)];
+  return [{ ...from }, ...recursiveConvert(from, to, conversions)];
 }
 
 export function formatHolding(
   holding: Holding,
   currencies: CurrenciesMap = defaultCurrencies
 ): string {
-  return `${holding.amount.toFixed(currencies[holding.currency].decimals)} ${
-    holding.currency
-  }`;
+  const amount = holding.amount.toFixed(currencies[holding.currency].decimals);
+  return `${amount} ${holding.currency}`;
 }
