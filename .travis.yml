@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - 12
+before_install:
+  - openssl aes-256-cbc -K $encrypted_85e15298f2bc_key -iv $encrypted_85e15298f2bc_iv
+    -in .travis.deploy.key.enc -out .travis.deploy.key -d
+  - yarn global add codecov
+script:
+  - yarn test:ci
+  - codecov
+deploy:
+  provider: pages:git
+  edge: true
+  deploy_key: .travis.deploy.key
+  skip_cleanup: true
+  local_dir: dist
+  github_token: "$GITHUB_TOKEN"
+  keep_history: true
+  on:
+    branch: master
