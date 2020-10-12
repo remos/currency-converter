@@ -3,8 +3,8 @@ import { CurrenciesMap, CurrencyCode } from 'types';
 
 const CurrencySelector: React.FC<{
   currencies: CurrenciesMap;
-  value: CurrencyCode;
-  onChange: ChangeEventHandler<HTMLSelectElement>;
+  value?: CurrencyCode;
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
 }> = ({ currencies, onChange, value }) => {
   return (
     <select onChange={onChange} value={value}>
