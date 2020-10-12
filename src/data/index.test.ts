@@ -1,4 +1,4 @@
-import { convert, formatHolding } from '.';
+import { convert, formatHolding, conversionMap } from '.';
 
 describe('convert', () => {
   it('1:1 same currency', () => {
@@ -8,7 +8,8 @@ describe('convert', () => {
           currency: 'AUD',
           amount: 2.12,
         },
-        'AUD'
+        'AUD',
+        conversionMap
       )
     ).toMatchInlineSnapshot(`
       Array [
@@ -31,7 +32,8 @@ describe('convert', () => {
           currency: 'AUD',
           amount: 2,
         },
-        'USD'
+        'USD',
+        conversionMap
       )
     ).toMatchInlineSnapshot(`
       Array [
@@ -54,7 +56,8 @@ describe('convert', () => {
           currency: 'USD',
           amount: 2,
         },
-        'AUD'
+        'AUD',
+        conversionMap
       )
     ).toMatchInlineSnapshot(`
       Array [
@@ -77,7 +80,8 @@ describe('convert', () => {
           currency: 'AUD',
           amount: 1,
         },
-        'JPY'
+        'JPY',
+        conversionMap
       )
     ).toMatchInlineSnapshot(`
       Array [
@@ -104,7 +108,8 @@ describe('convert', () => {
           currency: 'AUD',
           amount: 1,
         },
-        'NZD'
+        'NZD',
+        conversionMap
       )
     ).toMatchInlineSnapshot(`
       Array [
@@ -131,7 +136,8 @@ describe('convert', () => {
           currency: 'CAD',
           amount: 1,
         },
-        'CZK'
+        'CZK',
+        conversionMap
       )
     ).toMatchInlineSnapshot(`
       Array [
@@ -162,7 +168,8 @@ describe('convert', () => {
           currency: 'CAD',
           amount: 100,
         },
-        'AUD'
+        'AUD',
+        conversionMap
       )
     ).toMatchInlineSnapshot(`
       Array [
@@ -215,7 +222,8 @@ describe('convert', () => {
           currency: 'MXN',
           amount: 2,
         },
-        'USD'
+        'USD',
+        conversionMap
       )
     ).toThrowErrorMatchingInlineSnapshot(`"Could not find conversion from MXN to USD"`);
   });

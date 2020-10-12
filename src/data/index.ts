@@ -8,7 +8,7 @@ export { defaultCurrencies as currencies };
 export function getRate(
   from: CurrencyCode,
   to: CurrencyCode,
-  conversions: ConversionsMap = defaultConversions
+  conversions: ConversionsMap
 ): number | string {
   if (from === to) {
     return 1.0;
@@ -75,22 +75,16 @@ function recursiveConvert(
 export function convert(
   from: Holding,
   to: CurrencyCode,
-  conversions: ConversionsMap = defaultConversions
+  conversions: ConversionsMap
 ): Holding[] {
   return [{ ...from }, ...recursiveConvert(from, to, conversions)];
 }
 
-export function getDecimals(
-  currency: CurrencyCode,
-  currencies: CurrenciesMap = defaultCurrencies
-): number {
+export function getDecimals(currency: CurrencyCode, currencies: CurrenciesMap): number {
   return currencies[currency]?.decimals;
 }
 
-export function formatHolding(
-  holding: Holding,
-  currencies: CurrenciesMap = defaultCurrencies
-): string {
+export function formatHolding(holding: Holding, currencies: CurrenciesMap): string {
   const amount = holding.amount.toFixed(getDecimals(holding.currency, currencies));
   return `${amount} ${holding.currency}`;
 }
