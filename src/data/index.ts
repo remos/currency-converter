@@ -77,10 +77,17 @@ export function convert(
   return [{ ...from }, ...recursiveConvert(from, to, conversions)];
 }
 
+export function getDecimals(
+  currency: CurrencyCode,
+  currencies: CurrenciesMap = defaultCurrencies
+): number {
+  return currencies[currency]?.decimals;
+}
+
 export function formatHolding(
   holding: Holding,
   currencies: CurrenciesMap = defaultCurrencies
 ): string {
-  const amount = holding.amount.toFixed(currencies[holding.currency].decimals);
+  const amount = holding.amount.toFixed(getDecimals(holding.currency, currencies));
   return `${amount} ${holding.currency}`;
 }
