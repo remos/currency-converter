@@ -27,6 +27,8 @@ module.exports = {
             'ts-ignore': 'allow-with-description',
           },
         ],
+
+        'react/prop-types': [0],
       },
     },
     {
