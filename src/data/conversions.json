@@ -2,7 +2,7 @@
     "AUD-CAD": "USD",
     "AUD-CNY": "USD",
     "AUD-CZK": "USD",
-    "AUD-DDK": "USD",
+    "AUD-DKK": "USD",
     "AUD-EUR": "USD",
     "AUD-GBP": "USD",
     "AUD-JPY": "USD",
@@ -10,7 +10,7 @@
     "AUD-NZD": "USD",
     "CAD-CNY": "USD",
     "CAD-CZK": "USD",
-    "CAD-DDK": "USD",
+    "CAD-DKK": "USD",
     "CAD-EUR": "USD",
     "CAD-GBP": "USD",
     "CAD-JPY": "USD",
@@ -46,7 +46,7 @@
     "NOK-USD": "EUR",
 
     "EUR-CZK": 27.6028,
-    "EUR-DDK": 7.4405,
+    "EUR-DKK": 7.4405,
     "EUR-NOK": 8.6651,
     
     "USD-JPY": 119.95,
