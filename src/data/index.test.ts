@@ -243,6 +243,21 @@ describe('convert', () => {
       )
     ).toThrowErrorMatchingInlineSnapshot(`"Conversion from AUD to JPY looped"`);
   });
+
+  it('Throws error when path loops to base currency', () => {
+    expect(() =>
+      convert(
+        {
+          currency: 'AUD',
+          amount: 2,
+        },
+        'JPY',
+        {
+          'AUD-JPY': 'AUD',
+        }
+      )
+    ).toThrowErrorMatchingInlineSnapshot(`"Conversion from AUD to JPY looped"`);
+  });
 });
 
 describe('formatHolding', () => {

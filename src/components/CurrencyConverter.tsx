@@ -37,9 +37,7 @@ const Wrapper = styled.div`
   border: 1px solid #aaa;
 `;
 
-const InputWrapper = styled.div`
-  margin: 1rem;
-`;
+const InputWrapper = styled.div``;
 
 const ConversionTrailWrapper = styled.div`
   margin-top: 1rem;
@@ -58,7 +56,7 @@ const CurrencyConverter: React.FC<{
     (state) => state.conversion.holdings
   );
 
-  const [baseValue, setBaseValue] = useState(0);
+  const [baseValue, setBaseValue] = useState<number>();
   const [baseCurrency, setBaseCurrency] = useState<CurrencyCode>();
   const [termCurrency, setTermCurrency] = useState<CurrencyCode>();
 
@@ -69,6 +67,7 @@ const CurrencyConverter: React.FC<{
     <Wrapper>
       <InputWrapper>
         <input
+          name="base-amount"
           type="number"
           value={baseValue}
           step={step}
@@ -80,6 +79,7 @@ const CurrencyConverter: React.FC<{
           }}
         />
         <CurrencySelector
+          name="base-currency"
           currencies={currencies}
           value={baseCurrency}
           onChange={(e) => {
@@ -94,6 +94,7 @@ const CurrencyConverter: React.FC<{
         />
         <> to </>
         <CurrencySelector
+          name="term-currency"
           currencies={currencies}
           value={termCurrency}
           onChange={(e) => {
