@@ -1,4 +1,4 @@
-import { convert, formatHolding, conversionMap } from '.';
+import { convert, formatHolding, conversionMap } from './data';
 
 describe('convert', () => {
   it('1:1 same currency', () => {
