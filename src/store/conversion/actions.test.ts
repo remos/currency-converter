@@ -1,6 +1,6 @@
 import { recalculateConversion, clearConversion } from './actions';
 
-describe('converison/actions', () => {
+describe('conversion/actions', () => {
   it('recalculateConversion expected action', () => {
     expect(
       recalculateConversion({
