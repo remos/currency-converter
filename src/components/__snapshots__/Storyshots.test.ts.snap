@@ -783,6 +783,7 @@ exports[`Storyshots Currency Converter Base 1`] = `
     className=""
   >
     <input
+      aria-label="base amount"
       className="c1"
       name="base-amount"
       onChange={[Function]}
@@ -790,6 +791,7 @@ exports[`Storyshots Currency Converter Base 1`] = `
       value=""
     />
     <select
+      aria-label="base currency"
       name="base-currency"
       onChange={[Function]}
       value="AUD"
@@ -853,6 +855,7 @@ exports[`Storyshots Currency Converter Base 1`] = `
     </select>
      to 
     <select
+      aria-label="term currency"
       name="term-currency"
       onChange={[Function]}
       value="AUD"
@@ -942,6 +945,7 @@ exports[`Storyshots Currency Converter Error 1`] = `
     className=""
   >
     <input
+      aria-label="base amount"
       className="c1"
       name="base-amount"
       onChange={[Function]}
@@ -949,6 +953,7 @@ exports[`Storyshots Currency Converter Error 1`] = `
       value=""
     />
     <select
+      aria-label="base currency"
       name="base-currency"
       onChange={[Function]}
       value="AUD"
@@ -1012,6 +1017,7 @@ exports[`Storyshots Currency Converter Error 1`] = `
     </select>
      to 
     <select
+      aria-label="term currency"
       name="term-currency"
       onChange={[Function]}
       value="AUD"
@@ -1105,6 +1111,7 @@ exports[`Storyshots Currency Converter With Conversion 1`] = `
     className=""
   >
     <input
+      aria-label="base amount"
       className="c1"
       name="base-amount"
       onChange={[Function]}
@@ -1112,6 +1119,7 @@ exports[`Storyshots Currency Converter With Conversion 1`] = `
       value=""
     />
     <select
+      aria-label="base currency"
       name="base-currency"
       onChange={[Function]}
       value="AUD"
@@ -1175,6 +1183,7 @@ exports[`Storyshots Currency Converter With Conversion 1`] = `
     </select>
      to 
     <select
+      aria-label="term currency"
       name="term-currency"
       onChange={[Function]}
       value="AUD"

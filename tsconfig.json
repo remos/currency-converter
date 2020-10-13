@@ -3,7 +3,7 @@
         "jsx": "react",
         "esModuleInterop": true,
         "resolveJsonModule": true,
-        "types": ["jest", "./src/types"]
+        "types": ["jest", "@testing-library/jest-dom", "./src/types"]
     },
     "include": ["src/**/*"]
 }

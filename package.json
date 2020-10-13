@@ -25,7 +25,8 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "jest-styled-components"
+      "jest-styled-components",
+      "@testing-library/jest-dom"
     ],
     "collectCoverage": true,
     "coverageReporters": [
@@ -64,12 +65,15 @@
     "@storybook/react": "^6.0.26",
     "@stryker-mutator/core": "^4.0.0",
     "@stryker-mutator/jest-runner": "^4.0.0",
+    "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
+    "@testing-library/user-event": "^12.1.7",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.14",
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
     "@types/styled-components": "^5.1.4",
+    "@types/testing-library__jest-dom": "^5.9.4",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "babel-jest": "^26.5.2",

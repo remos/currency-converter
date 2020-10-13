@@ -97,6 +97,7 @@ const CurrencyConverter: React.FC<{
       <InputWrapper>
         <AmountInput
           name="base-amount"
+          aria-label="base amount"
           type="text"
           value={baseValue}
           onChange={(e) => {
@@ -113,6 +114,7 @@ const CurrencyConverter: React.FC<{
         />
         <CurrencySelector
           name="base-currency"
+          aria-label="base currency"
           currencies={currencies}
           value={baseCurrency}
           onChange={(e) => {
@@ -123,6 +125,7 @@ const CurrencyConverter: React.FC<{
         <> to </>
         <CurrencySelector
           name="term-currency"
+          aria-label="term currency"
           currencies={currencies}
           value={termCurrency}
           onChange={(e) => {
