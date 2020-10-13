@@ -6,6 +6,7 @@ before_install:
     -in .travis.deploy.key.enc -out .travis.deploy.key -d
   - yarn global add codecov
 script:
+  - yarn build
   - yarn test:ci
   - codecov
 deploy:
