@@ -2,19 +2,27 @@ language: node_js
 node_js:
   - 12
 before_install:
-  - openssl aes-256-cbc -K $encrypted_85e15298f2bc_key -iv $encrypted_85e15298f2bc_iv
-    -in .travis.deploy.key.enc -out .travis.deploy.key -d
   - yarn global add codecov
-script:
-  - yarn build
-  - yarn test:ci
-  - codecov
-deploy:
-  provider: pages:git
-  edge: true
-  deploy_key: ".travis.deploy.key"
-  skip_cleanup: true
-  local_dir: dist
-  keep_history: true
-  on:
-    branch: master
+
+jobs:
+  include:
+    - stage: tests
+      script: yarn test:jest:ci
+    - stage: tests
+      script: travis_wait 20 yarn test:stryker:ci
+    - stage: report
+      script: codecov
+    - stage: build and deploy
+      script: yarn build
+      before_deploy:
+        - openssl aes-256-cbc -K $encrypted_85e15298f2bc_key -iv $encrypted_85e15298f2bc_iv
+          -in .travis.deploy.key.enc -out .travis.deploy.key -d
+      deploy:
+        provider: pages:git
+        edge: true
+        deploy_key: ".travis.deploy.key"
+        skip_cleanup: true
+        local_dir: dist
+        keep_history: true
+        on:
+          branch: master
