@@ -38,7 +38,8 @@
     ],
     "coverageDirectory": "reports/coverage",
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.stories.{js,jsx,ts,tsx}"
     ]
   },
   "prettier": {
