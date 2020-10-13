@@ -1,17 +1,16 @@
 language: node_js
 node_js:
   - 12
-before_install:
-  - yarn global add codecov
 
 jobs:
   include:
     - stage: tests
-      script: yarn test:jest:ci
+      before_install: yarn global add codecov
+      script: 
+        - yarn test:jest:ci
+        - codecov
     - stage: tests
       script: travis_wait 20 yarn test:stryker:ci
-    - stage: report
-      script: codecov
     - stage: build and deploy
       script: yarn build
       before_deploy:
