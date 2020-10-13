@@ -43,26 +43,30 @@ function recursiveConvert(
 
   const rate = getRate(from.currency, to, conversions);
   if (rate === null) {
+    // No rate mapping is found
     throw new Error(`Could not find conversion from ${from.currency} to ${to}`);
   } else if (typeof rate === 'string') {
+    // The conversion goes via a cross currency
     if (visitedCurrencies.indexOf(rate) >= 0) {
+      // The currency has previously been visited during this conversion
       throw new Error(`Conversion from ${from.currency} to ${to} looped`);
     }
 
     const newVisited = [...visitedCurrencies, rate];
 
+    // Get conversion from base to cross currency
     const crossHoldings = recursiveConvert(from, rate, conversions, newVisited);
-
-    trail.push(
-      ...crossHoldings,
-      ...recursiveConvert(
-        crossHoldings[crossHoldings.length - 1],
-        to,
-        conversions,
-        newVisited
-      )
+    // Get conversion from cross to term currency
+    const remainingHoldings = recursiveConvert(
+      crossHoldings[crossHoldings.length - 1],
+      to,
+      conversions,
+      newVisited
     );
+
+    trail.push(...crossHoldings, ...remainingHoldings);
   } else {
+    // Numerical rate (direct or inverse)
     trail.push({
       currency: to,
       amount: from.amount * rate,
@@ -72,12 +76,17 @@ function recursiveConvert(
   return trail;
 }
 
+/**
+ * Convert from a base currency to a term currency, given a map of conversion rates
+ * @returns An array of holdings, including the base holding visited to reach the term currency
+ * @throws Error when the path of a conversion loops or cannot be found
+ */
 export function convert(
-  from: Holding,
-  to: CurrencyCode,
+  base: Holding,
+  term: CurrencyCode,
   conversions: ConversionsMap
 ): Holding[] {
-  return [{ ...from }, ...recursiveConvert(from, to, conversions)];
+  return [{ ...base }, ...recursiveConvert(base, term, conversions)];
 }
 
 export function getDecimals(currency: CurrencyCode, currencies: CurrenciesMap): number {
