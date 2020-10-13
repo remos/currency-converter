@@ -1,5 +1,194 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CurrencyConverter Amount unchanged when changing base currency to valid 1`] = `
+.c0 {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+.c1 {
+  margin-right: 4px;
+}
+
+.c2 {
+  margin-top: 1rem;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class=""
+    >
+      <input
+        aria-label="base amount"
+        class="c1"
+        name="base-amount"
+        type="text"
+        value="12.12"
+      />
+      <select
+        aria-label="base currency"
+        name="base-currency"
+      >
+        <option />
+        <option
+          value="AUD"
+        >
+          AUD
+        </option>
+        <option
+          value="CAD"
+        >
+          CAD
+        </option>
+        <option
+          value="CNY"
+        >
+          CNY
+        </option>
+        <option
+          value="CZK"
+        >
+          CZK
+        </option>
+        <option
+          value="DKK"
+        >
+          DKK
+        </option>
+        <option
+          value="EUR"
+        >
+          EUR
+        </option>
+        <option
+          value="GBP"
+        >
+          GBP
+        </option>
+        <option
+          value="JPY"
+        >
+          JPY
+        </option>
+        <option
+          value="NOK"
+        >
+          NOK
+        </option>
+        <option
+          value="NZD"
+        >
+          NZD
+        </option>
+        <option
+          value="USD"
+        >
+          USD
+        </option>
+      </select>
+       to 
+      <select
+        aria-label="term currency"
+        name="term-currency"
+      >
+        <option />
+        <option
+          value="AUD"
+        >
+          AUD
+        </option>
+        <option
+          value="CAD"
+        >
+          CAD
+        </option>
+        <option
+          value="CNY"
+        >
+          CNY
+        </option>
+        <option
+          value="CZK"
+        >
+          CZK
+        </option>
+        <option
+          value="DKK"
+        >
+          DKK
+        </option>
+        <option
+          value="EUR"
+        >
+          EUR
+        </option>
+        <option
+          value="GBP"
+        >
+          GBP
+        </option>
+        <option
+          value="JPY"
+        >
+          JPY
+        </option>
+        <option
+          value="NOK"
+        >
+          NOK
+        </option>
+        <option
+          value="NZD"
+        >
+          NZD
+        </option>
+        <option
+          value="USD"
+        >
+          USD
+        </option>
+      </select>
+    </div>
+    <div
+      class="c2"
+    >
+      <div>
+        <div>
+          12.12 CAD
+           =
+           
+          10.56 USD
+        </div>
+        <div>
+          10.56 USD
+           =
+           
+          8.57 EUR
+        </div>
+        <div>
+          8.57 EUR
+           =
+           
+          63.79 DKK
+        </div>
+        <hr />
+        <div>
+          12.12 CAD
+           =
+           
+          63.79 DKK
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`CurrencyConverter Dropped decimals when changing base currency 1`] = `
 .c0 {
   background-color: white;

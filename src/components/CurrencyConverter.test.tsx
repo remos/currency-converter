@@ -104,6 +104,26 @@ describe('CurrencyConverter', () => {
     expect(baseCurrencySelect).toHaveValue('JPY');
     expect(termCurrencySelect).toHaveValue('DKK');
   });
+
+  it('Amount unchanged when changing base currency to valid', () => {
+    const { container, getByRole } = setupCurrencyConverter('12.12', 'CAD', 'DKK');
+
+    const baseAmountInput = getByRole('textbox', { name: 'base amount' });
+    const baseCurrencySelect = getByRole('combobox', { name: 'base currency' });
+    const termCurrencySelect = getByRole('combobox', { name: 'term currency' });
+
+    expect(baseAmountInput).toHaveValue('12.12');
+    expect(baseCurrencySelect).toHaveValue('CAD');
+    expect(termCurrencySelect).toHaveValue('DKK');
+
+    expect(container).toMatchSnapshot();
+
+    userEvent.selectOptions(baseCurrencySelect, 'AUD');
+
+    expect(baseAmountInput).toHaveValue('12.12');
+    expect(baseCurrencySelect).toHaveValue('AUD');
+    expect(termCurrencySelect).toHaveValue('DKK');
+  });
 });
 
 describe('triggerRecalculateIfNeeded', () => {
