@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: resolve(__dirname, 'dist'),
     filename: 'bundle.[hash].js',
-    publicPath: '/',
+    publicPath: '',
   },
 
   plugins: [
