@@ -32,15 +32,9 @@ export const triggerRecalculateIfNeeded = (
   }
 };
 
-const Wrapper = styled.div`
-  background-color: white;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid #aaa;
-`;
-
 const AmountInput = styled.input`
   margin-right: 4px;
+  text-align: right;
 `;
 
 const InputWrapper = styled.div``;
@@ -93,7 +87,7 @@ const CurrencyConverter: React.FC<{
   );
 
   return (
-    <Wrapper>
+    <>
       <InputWrapper>
         <AmountInput
           name="base-amount"
@@ -140,7 +134,7 @@ const CurrencyConverter: React.FC<{
           <ConversionTrail holdings={holdings} currencies={currencies} />
         </ConversionTrailWrapper>
       ) : null}
-    </Wrapper>
+    </>
   );
 };
 
