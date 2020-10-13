@@ -4,10 +4,6 @@ import { clearConversion, recalculateConversion } from './actions';
 
 jest.mock('../../data');
 
-/*jest.mock('../../data', ()=>{
-  const data = jest.createMockFromModule('../../data');
-});*/
-
 describe('converison/reducer', () => {
   const mockedConvert = convert as jest.Mock<
     ReturnType<typeof convert>,
