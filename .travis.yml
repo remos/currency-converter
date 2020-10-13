@@ -5,13 +5,16 @@ node_js:
 jobs:
   include:
     - stage: tests
+      name: Jest unit tests
       before_install: yarn global add codecov
       script: 
         - yarn test:jest:ci
         - codecov
     - stage: tests
+      name: Stryker mutation tests
       script: travis_wait 20 yarn test:stryker:ci
     - stage: build and deploy
+      name: Build and deploy
       script: yarn build
       before_deploy:
         - openssl aes-256-cbc -K $encrypted_85e15298f2bc_key -iv $encrypted_85e15298f2bc_iv
