@@ -1,20 +1,21 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { ConversionsMap, CurrenciesMap, CurrencyCode, Holding, RootState } from 'types';
-import { getDecimals, currencies as defaultCurrencies, conversionMap } from '../data';
+import { getDecimals } from '../data';
 import CurrencySelector from './CurrencySelector';
 import ConversionTrail from './ConversionTrail';
-import { useSelector } from 'react-redux';
-import { dispatch } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
 import { clearConversion, recalculateConversion } from '../store/conversion/actions';
 import styled from 'styled-components';
-import { sanitiseAmount } from '../data/sanitisation';
+import { sanitiseAmount } from '../data';
+import { Dispatch } from 'redux';
 
-const triggerRecalculateIfNeeded = (
+export const triggerRecalculateIfNeeded = (
+  dispatch: Dispatch,
   baseCurrency: CurrencyCode,
   baseAmount: number,
   term: CurrencyCode,
   conversions: ConversionsMap
-) => {
+): void => {
   if (!baseCurrency || isNaN(baseAmount) || !term) {
     dispatch(clearConversion());
   } else {
@@ -48,18 +49,20 @@ const ConversionTrailWrapper = styled.div`
   margin-top: 1rem;
 `;
 
-const Error = styled.span`
+const Error = styled.div`
   color: red;
+  margin-top: 1rem;
 `;
 
 const CurrencyConverter: React.FC<{
   conversions: ConversionsMap;
   currencies: CurrenciesMap;
-}> = ({ conversions = conversionMap, currencies = defaultCurrencies }) => {
+}> = ({ conversions, currencies }) => {
   const error: string = useSelector<RootState, string>((state) => state.conversion.error);
   const holdings: Holding[] = useSelector<RootState, Holding[]>(
     (state) => state.conversion.holdings
   );
+  const dispatch = useDispatch();
 
   const currencyCodes = Object.keys(currencies);
 
@@ -76,14 +79,18 @@ const CurrencyConverter: React.FC<{
     }
   }, [decimals]);
 
-  useEffect(() => {
-    triggerRecalculateIfNeeded(
-      baseCurrency,
-      parseFloat(baseValue),
-      termCurrency,
-      conversions
-    );
-  }, [baseValue, baseCurrency, termCurrency]);
+  const checkRecalculate = useCallback(
+    (baseCurrency, baseValue, termCurrency) => {
+      triggerRecalculateIfNeeded(
+        dispatch,
+        baseCurrency,
+        parseFloat(baseValue),
+        termCurrency,
+        conversions
+      );
+    },
+    [dispatch, conversions]
+  );
 
   return (
     <Wrapper>
@@ -100,6 +107,7 @@ const CurrencyConverter: React.FC<{
               setBaseValue(baseValue);
             } else {
               setBaseValue(sanitised);
+              checkRecalculate(baseCurrency, sanitised, termCurrency);
             }
           }}
         />
@@ -109,6 +117,7 @@ const CurrencyConverter: React.FC<{
           value={baseCurrency}
           onChange={(e) => {
             setBaseCurrency(e.target.value);
+            checkRecalculate(e.target.value, baseValue, termCurrency);
           }}
         />
         <> to </>
@@ -118,6 +127,7 @@ const CurrencyConverter: React.FC<{
           value={termCurrency}
           onChange={(e) => {
             setTermCurrency(e.target.value);
+            checkRecalculate(baseCurrency, baseValue, e.target.value);
           }}
         />
       </InputWrapper>

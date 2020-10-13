@@ -764,6 +764,507 @@ exports[`Storyshots Conversion Trail Base 1`] = `
 </div>
 `;
 
+exports[`Storyshots Currency Converter Base 1`] = `
+.c0 {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+.c1 {
+  margin-right: 4px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className=""
+  >
+    <input
+      className="c1"
+      name="base-amount"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <select
+      name="base-currency"
+      onChange={[Function]}
+      value="AUD"
+    >
+      <option />
+      <option
+        value="AUD"
+      >
+        AUD
+      </option>
+      <option
+        value="CAD"
+      >
+        CAD
+      </option>
+      <option
+        value="CNY"
+      >
+        CNY
+      </option>
+      <option
+        value="CZK"
+      >
+        CZK
+      </option>
+      <option
+        value="DKK"
+      >
+        DKK
+      </option>
+      <option
+        value="EUR"
+      >
+        EUR
+      </option>
+      <option
+        value="GBP"
+      >
+        GBP
+      </option>
+      <option
+        value="JPY"
+      >
+        JPY
+      </option>
+      <option
+        value="NOK"
+      >
+        NOK
+      </option>
+      <option
+        value="NZD"
+      >
+        NZD
+      </option>
+      <option
+        value="USD"
+      >
+        USD
+      </option>
+    </select>
+     to 
+    <select
+      name="term-currency"
+      onChange={[Function]}
+      value="AUD"
+    >
+      <option />
+      <option
+        value="AUD"
+      >
+        AUD
+      </option>
+      <option
+        value="CAD"
+      >
+        CAD
+      </option>
+      <option
+        value="CNY"
+      >
+        CNY
+      </option>
+      <option
+        value="CZK"
+      >
+        CZK
+      </option>
+      <option
+        value="DKK"
+      >
+        DKK
+      </option>
+      <option
+        value="EUR"
+      >
+        EUR
+      </option>
+      <option
+        value="GBP"
+      >
+        GBP
+      </option>
+      <option
+        value="JPY"
+      >
+        JPY
+      </option>
+      <option
+        value="NOK"
+      >
+        NOK
+      </option>
+      <option
+        value="NZD"
+      >
+        NZD
+      </option>
+      <option
+        value="USD"
+      >
+        USD
+      </option>
+    </select>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Currency Converter Error 1`] = `
+.c0 {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+.c1 {
+  margin-right: 4px;
+}
+
+.c2 {
+  color: red;
+  margin-top: 1rem;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className=""
+  >
+    <input
+      className="c1"
+      name="base-amount"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <select
+      name="base-currency"
+      onChange={[Function]}
+      value="AUD"
+    >
+      <option />
+      <option
+        value="AUD"
+      >
+        AUD
+      </option>
+      <option
+        value="CAD"
+      >
+        CAD
+      </option>
+      <option
+        value="CNY"
+      >
+        CNY
+      </option>
+      <option
+        value="CZK"
+      >
+        CZK
+      </option>
+      <option
+        value="DKK"
+      >
+        DKK
+      </option>
+      <option
+        value="EUR"
+      >
+        EUR
+      </option>
+      <option
+        value="GBP"
+      >
+        GBP
+      </option>
+      <option
+        value="JPY"
+      >
+        JPY
+      </option>
+      <option
+        value="NOK"
+      >
+        NOK
+      </option>
+      <option
+        value="NZD"
+      >
+        NZD
+      </option>
+      <option
+        value="USD"
+      >
+        USD
+      </option>
+    </select>
+     to 
+    <select
+      name="term-currency"
+      onChange={[Function]}
+      value="AUD"
+    >
+      <option />
+      <option
+        value="AUD"
+      >
+        AUD
+      </option>
+      <option
+        value="CAD"
+      >
+        CAD
+      </option>
+      <option
+        value="CNY"
+      >
+        CNY
+      </option>
+      <option
+        value="CZK"
+      >
+        CZK
+      </option>
+      <option
+        value="DKK"
+      >
+        DKK
+      </option>
+      <option
+        value="EUR"
+      >
+        EUR
+      </option>
+      <option
+        value="GBP"
+      >
+        GBP
+      </option>
+      <option
+        value="JPY"
+      >
+        JPY
+      </option>
+      <option
+        value="NOK"
+      >
+        NOK
+      </option>
+      <option
+        value="NZD"
+      >
+        NZD
+      </option>
+      <option
+        value="USD"
+      >
+        USD
+      </option>
+    </select>
+  </div>
+  <div
+    className="c2"
+  >
+    Error: There was an error converting
+  </div>
+</div>
+`;
+
+exports[`Storyshots Currency Converter With Conversion 1`] = `
+.c0 {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+.c1 {
+  margin-right: 4px;
+}
+
+.c2 {
+  margin-top: 1rem;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className=""
+  >
+    <input
+      className="c1"
+      name="base-amount"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <select
+      name="base-currency"
+      onChange={[Function]}
+      value="AUD"
+    >
+      <option />
+      <option
+        value="AUD"
+      >
+        AUD
+      </option>
+      <option
+        value="CAD"
+      >
+        CAD
+      </option>
+      <option
+        value="CNY"
+      >
+        CNY
+      </option>
+      <option
+        value="CZK"
+      >
+        CZK
+      </option>
+      <option
+        value="DKK"
+      >
+        DKK
+      </option>
+      <option
+        value="EUR"
+      >
+        EUR
+      </option>
+      <option
+        value="GBP"
+      >
+        GBP
+      </option>
+      <option
+        value="JPY"
+      >
+        JPY
+      </option>
+      <option
+        value="NOK"
+      >
+        NOK
+      </option>
+      <option
+        value="NZD"
+      >
+        NZD
+      </option>
+      <option
+        value="USD"
+      >
+        USD
+      </option>
+    </select>
+     to 
+    <select
+      name="term-currency"
+      onChange={[Function]}
+      value="AUD"
+    >
+      <option />
+      <option
+        value="AUD"
+      >
+        AUD
+      </option>
+      <option
+        value="CAD"
+      >
+        CAD
+      </option>
+      <option
+        value="CNY"
+      >
+        CNY
+      </option>
+      <option
+        value="CZK"
+      >
+        CZK
+      </option>
+      <option
+        value="DKK"
+      >
+        DKK
+      </option>
+      <option
+        value="EUR"
+      >
+        EUR
+      </option>
+      <option
+        value="GBP"
+      >
+        GBP
+      </option>
+      <option
+        value="JPY"
+      >
+        JPY
+      </option>
+      <option
+        value="NOK"
+      >
+        NOK
+      </option>
+      <option
+        value="NZD"
+      >
+        NZD
+      </option>
+      <option
+        value="USD"
+      >
+        USD
+      </option>
+    </select>
+  </div>
+  <div
+    className="c2"
+  >
+    <div>
+      <div>
+        1.00 USD
+         =
+         
+        2.00 AUD
+      </div>
+      <div>
+        2.00 AUD
+         =
+         
+        100 JPY
+      </div>
+      <hr />
+      <div>
+        1.00 USD
+         =
+         
+        100 JPY
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Currency Selector Base 1`] = `
 <select>
   <option />
