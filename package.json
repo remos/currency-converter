@@ -7,10 +7,11 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "serve": "cross-env NODE_ENV=development webpack serve",
-    "test": "jest && stryker run",
-    "test:ci": "jest --ci && stryker run --reporters dashboard",
+    "test": "jest",
     "test:jest": "jest",
+    "test:jest:ci": "jest --ci",
     "test:stryker": "stryker run",
+    "test:stryker:ci": "stryker run --reporters dashboard",
     "storybook": "start-storybook"
   },
   "babel": {

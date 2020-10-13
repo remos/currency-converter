@@ -36,7 +36,12 @@ Builds app into `dist` directory using webpack
 ```
 yarn test
 ```
-Runs both jest and stryker
+Runs jest unit tests
+
+```
+yarn test:stryker
+```
+Runs stryker mutation testing
 
 ```
 yarn storybook
