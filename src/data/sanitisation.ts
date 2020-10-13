@@ -6,7 +6,7 @@ export const sanitiseAmount = (
   truncateDecimals: boolean
 ): string | false => {
   const inputPattern = new RegExp(
-    `^[0-9]*${decimals && decimals > 0 ? `\\.?[0-9]{0,${decimals}}` : ''}$`
+    `^[0-9]*${decimals > 0 ? `\\.?[0-9]{0,${decimals}}` : ''}$`
   );
 
   const amount = parseFloat(value);

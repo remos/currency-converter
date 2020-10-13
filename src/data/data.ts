@@ -81,7 +81,7 @@ export function convert(
 }
 
 export function getDecimals(currency: CurrencyCode, currencies: CurrenciesMap): number {
-  return currencies[currency]?.decimals;
+  return currencies[currency]?.decimals || 0;
 }
 
 export function formatHolding(holding: Holding, currencies: CurrenciesMap): string {

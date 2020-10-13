@@ -7,6 +7,8 @@ describe('sanitiseAmount', () => {
     expect(sanitiseAmount('12.12', 2, true)).toBe('12.12');
     expect(sanitiseAmount('12.', 2, false)).toBe('12.');
     expect(sanitiseAmount('12.', 2, true)).toBe('12.');
+
+    expect(sanitiseAmount('12', 0, true)).toBe('12');
   });
 
   it('returns false with non-numeric inputs', () => {
